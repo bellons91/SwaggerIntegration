@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerIntegrationV3</name>
+    </assembly>
+    <members>
+        <member name="M:SwaggerIntegrationV3.Controllers.MarvelMoviesController.Get(System.Int32)">
+            <summary>
+            Returns a movie given its ID
+            </summary>
+            <param name="id">ID of the movie to be found</param>
+            <returns>The related movie if found. Null otherwise</returns>
+        </member>
+    </members>
+</doc>

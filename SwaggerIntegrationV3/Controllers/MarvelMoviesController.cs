@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SwaggerIntegrationV3.Controllers
 {
@@ -15,14 +14,17 @@ namespace SwaggerIntegrationV3.Controllers
     [ApiController]
     public class MarvelMoviesController : ControllerBase
     {
-
-        // GET: api/<MarvelMoviesController>
         [HttpGet]
         public IEnumerable<Movie> Get()
         {
             return movies;
         }
 
+        /// <summary>
+        /// Returns a movie given its ID
+        /// </summary>
+        /// <param name="id">ID of the movie to be found</param>
+        /// <returns>The related movie if found. Null otherwise</returns>
         // GET api/<MarvelMoviesController>/5
         [HttpGet("{id}")]
         public Movie Get(int id)
