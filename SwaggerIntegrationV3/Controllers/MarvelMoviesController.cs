@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 
 namespace SwaggerIntegrationV3.Controllers
@@ -14,6 +12,11 @@ namespace SwaggerIntegrationV3.Controllers
     [ApiController]
     public class MarvelMoviesController : ControllerBase
     {
+
+        /// <summary>
+        /// Get all the Marvel movies
+        /// </summary>
+        /// <returns>List of Marvel movies</returns>
         [HttpGet]
         public IEnumerable<Movie> Get()
         {
@@ -27,11 +30,17 @@ namespace SwaggerIntegrationV3.Controllers
         /// <returns>The related movie if found. Null otherwise</returns>
         // GET api/<MarvelMoviesController>/5
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public Movie Get(int id)
         {
             return movies.FirstOrDefault(x => x.Id == id);
         }
 
+        /// <summary>
+        /// Adds a Marvel movie to the list
+        /// </summary>
+        /// <param name="value">Movie to be added</param>
         // POST api/<MarvelMoviesController>
         [HttpPost]
         public void Post([FromBody] Movie value)
@@ -39,6 +48,10 @@ namespace SwaggerIntegrationV3.Controllers
             movies.Add(value);
         }
 
+        /// <summary>
+        /// Removes a movie from the list
+        /// </summary>
+        /// <param name="id">Id of the movie to be deleted</param>
         // DELETE api/<MarvelMoviesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
@@ -46,7 +59,7 @@ namespace SwaggerIntegrationV3.Controllers
             movies.RemoveAll(m => m.Id == id);
         }
 
-        static List<Movie> movies = new List<Movie>() {
+        private static readonly List<Movie> movies = new List<Movie>() {
             new Movie{
                 Id = 1,
                 Title="Iron Man",
