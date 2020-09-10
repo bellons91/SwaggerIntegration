@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SwaggerIntegrationV3</name>
+    </assembly>
+    <members>
+        <member name="M:SwaggerIntegrationV3.Controllers.MarvelMoviesController.Get">
+            <summary>
+            Get all the Marvel movies
+            </summary>
+            <returns>List of Marvel movies</returns>
+        </member>
+        <member name="M:SwaggerIntegrationV3.Controllers.MarvelMoviesController.Get(System.Int32)">
+            <summary>
+            Returns a movie given its ID
+            </summary>
+            <param name="id">ID of the movie to be found</param>
+            <returns>The related movie if found. Null otherwise</returns>
+        </member>
+        <member name="M:SwaggerIntegrationV3.Controllers.MarvelMoviesController.Post(SwaggerIntegrationV3.Movie)">
+            <summary>
+            Adds a Marvel movie to the list
+            </summary>
+            <param name="value">Movie to be added</param>
+        </member>
+        <member name="M:SwaggerIntegrationV3.Controllers.MarvelMoviesController.Delete(System.Int32)">
+            <summary>
+            Removes a movie from the list
+            </summary>
+            <param name="id">Id of the movie to be deleted</param>
+        </member>
+    </members>
+</doc>
